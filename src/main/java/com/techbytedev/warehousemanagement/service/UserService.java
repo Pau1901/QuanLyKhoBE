@@ -246,7 +246,12 @@ public void deleteUser(Integer id) {
         response.setPhoneNumber(user.getPhoneNumber());
         response.setAddress(user.getAddress());
         response.setActive(user.isActive());
-        response.setRoleName(user.getRoleName()); // Sử dụng roleName thay vì user.getRole().getName()
+        
+        // Set both roleId and roleName
+        if (user.getRole() != null) {
+            response.setRoleId(user.getRole().getId());
+            response.setRoleName(user.getRoleName());
+        }
 
         if (user.getRole() != null && user.getRole().getId() != null) {
             List<Permission> permissions = permissionService.findByRoleId(user.getRole().getId());

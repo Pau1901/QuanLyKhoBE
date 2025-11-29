@@ -17,7 +17,8 @@ public class UserResponse {
     private String phoneNumber;
     private String address;
     private boolean isActive;
+    private Integer roleId;
     private String roleName;
-        private Set<PermissionResponseDTO> permissions;
+    private Set<PermissionResponseDTO> permissions;
 
 }
