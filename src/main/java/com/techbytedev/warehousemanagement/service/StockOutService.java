@@ -52,7 +52,8 @@ public class StockOutService {
         stockOutForm.setCode(request.getCode());
         stockOutForm.setDestination(request.getDestination());
         stockOutForm.setCreatedBy(user);
-        stockOutForm.setCreatedAt(LocalDateTime.now());
+        // Sử dụng dateOut từ request, nếu không có thì dùng thời gian hiện tại
+        stockOutForm.setCreatedAt(request.getDateOut() != null ? request.getDateOut() : LocalDateTime.now());
         stockOutForm.setNote(request.getNote());
         stockOutFormRepository.save(stockOutForm);
 

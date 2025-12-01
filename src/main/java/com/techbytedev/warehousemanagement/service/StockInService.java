@@ -88,7 +88,8 @@ public class StockInService {
         StockInForm stockInForm = new StockInForm();
         stockInForm.setCode(requestDTO.getCode());
         stockInForm.setCreatedBy(user);
-        stockInForm.setCreatedAt(LocalDateTime.now());
+        // Sử dụng dateIn từ request, nếu không có thì dùng thời gian hiện tại
+        stockInForm.setCreatedAt(requestDTO.getDateIn() != null ? requestDTO.getDateIn() : LocalDateTime.now());
         stockInForm.setInvoiceFile(invoiceFilePath);
         stockInForm.setNote(requestDTO.getNote() != null ? requestDTO.getNote() : "Nhập hàng");
         stockInFormRepository.save(stockInForm);

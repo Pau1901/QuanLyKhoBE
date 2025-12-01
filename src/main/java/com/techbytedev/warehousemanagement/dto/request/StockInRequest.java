@@ -1,7 +1,9 @@
 package com.techbytedev.warehousemanagement.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -10,6 +12,9 @@ public class StockInRequest {
     private List<ProductInRequest> products;
     private String username;
     private String note;
+    
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime dateIn;
 
     public String getCode() {
         return code;
@@ -41,5 +46,13 @@ public class StockInRequest {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public LocalDateTime getDateIn() {
+        return dateIn;
+    }
+
+    public void setDateIn(LocalDateTime dateIn) {
+        this.dateIn = dateIn;
     }
 }
