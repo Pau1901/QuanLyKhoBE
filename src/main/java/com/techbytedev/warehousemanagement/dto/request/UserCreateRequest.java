@@ -1,5 +1,6 @@
 package com.techbytedev.warehousemanagement.dto.request;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
@@ -10,6 +11,9 @@ public class UserCreateRequest {
     private String password;
     private String phoneNumber;
     private String address;
-    private boolean isActive;
+    
+    @JsonProperty("isActive")
+    private Boolean isActive;
+    
     private Integer roleId; // Changed from roleName to roleId
 }
