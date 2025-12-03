@@ -162,7 +162,7 @@ public class StockInService {
         dto.setCode(form.getCode());
         dto.setNote(form.getNote());
         dto.setCreatedAt(form.getCreatedAt());
-        dto.setUsername(form.getCreatedBy().getUsername());
+        dto.setUsername(form.getCreatedBy() != null ? form.getCreatedBy().getUsername() : "unknown");
         dto.setInvoiceFile(form.getInvoiceFile());
         return dto;
     }
